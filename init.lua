@@ -170,8 +170,17 @@ vim.o.cursorline = true
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.o.scrolloff = 2
 
--- Enable autochdir
-vim.o.autochdir = true
+-- Enable autochdir for Neo-tree
+vim.api.nvim_create_autocmd('BufEnter', {
+  callback = function()
+    local ft = vim.bo.filetype
+    local bt = vim.bo.buftype
+    if ft ~= 'neo-tree' and bt == '' then
+      local dir = vim.fn.expand '%:p:h'
+      vim.cmd('cd ' .. dir)
+    end
+  end,
+})
 
 -- if performing an operation that would fail due to unsaved changes in the buffer (like `:q`),
 -- instead raise a dialog asking if you wish to save the current file(s)
@@ -1001,6 +1010,7 @@ require('lazy').setup({
   --
   --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
   { import = 'custom.plugins' },
+
   --
   -- For additional information with loading, sourcing and examples see `:help lazy.nvim-🔌-plugin-spec`
   -- Or use telescope!

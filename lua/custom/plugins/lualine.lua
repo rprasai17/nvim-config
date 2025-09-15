@@ -5,11 +5,43 @@ return {
   config = function()
     require('lualine').setup {
       options = {
-        theme = 'gruvbox_light',
+        theme = 'gruvbox_dark',
         globalstatus = true,
+        always_show_tabline = true,
+      },
+      tabline = {
+        lualine_a = {
+          {
+            function()
+              local grapple = require 'grapple'
+              if not grapple.exists() then
+                return ''
+              end
+              local tag = grapple.find()
+              if not tag then
+                return ''
+              end
+
+              local index = grapple.name_or_index()
+              local parent_dir = vim.fn.fnamemodify(tag.path, ':h:t')
+              local file = vim.fn.fnamemodify(tag.path, ':t')
+              return '%#GruvboxRed#' .. string.format('%s: %s/%s', index, parent_dir, file) .. '%*'
+            end,
+            cond = function()
+              return package.loaded['grapple'] and require('grapple').exists()
+            end,
+          },
+        },
+        lualine_b = {},
+        lualine_c = {},
+        lualine_x = { require('grapple-line').lualine },
+        lualine_y = {},
+        lualine_z = {},
       },
       sections = {
-        lualine_a = { 'mode' },
+        lualine_a = {
+          'mode',
+        },
         lualine_b = { 'branch' },
         lualine_c = { { 'filename', path = 3 } },
         lualine_x = {},

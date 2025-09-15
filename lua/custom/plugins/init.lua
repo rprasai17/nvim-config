@@ -11,7 +11,6 @@ vim.opt.termguicolors = true
 return {
 
   require 'custom.plugins.betterterm',
-  require 'custom.plugins.harpoon',
   require 'custom.plugins.lualine',
   require 'custom.plugins.neo-tree',
   require 'custom.plugins.stickybuf',
@@ -19,4 +18,6 @@ return {
   require 'custom.plugins.indent-blankline',
   require 'custom.plugins.autopairs',
   require 'custom.plugins.neoscroll',
+  require 'custom.plugins.grapple',
+  require 'custom.themes.gruvbox',
 }

@@ -12,7 +12,9 @@ return {
         'RainbowViolet',
         'RainbowCyan',
       },
-      char = '',
+      char = '│',
+      tab_char = '»',
+      smart_indent_cap = true,
     },
     whitespace = {
       highlight = { 'CursorColumn', 'Whitespace' },
@@ -23,22 +25,15 @@ return {
   config = function(_, opts)
     local hooks = require 'ibl.hooks'
 
-    local colors = {
-      RainbowRed = '#E06C75',
-      RainbowYellow = '#E5C07B',
-      RainbowBlue = '#61AFEF',
-      RainbowOrange = '#D19A66',
-      RainbowGreen = '#98C379',
-      RainbowViolet = '#C678DD',
-      RainbowCyan = '#56B6C2',
-    }
-
     hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
-      for group, fg in pairs(colors) do
-        vim.api.nvim_set_hl(0, group, { fg = fg })
-      end
+      vim.api.nvim_set_hl(0, 'RainbowRed', { fg = '#E06C75' })
+      vim.api.nvim_set_hl(0, 'RainbowYellow', { fg = '#E5C07B' })
+      vim.api.nvim_set_hl(0, 'RainbowBlue', { fg = '#61AFEF' })
+      vim.api.nvim_set_hl(0, 'RainbowOrange', { fg = '#D19A66' })
+      vim.api.nvim_set_hl(0, 'RainbowGreen', { fg = '#98C379' })
+      vim.api.nvim_set_hl(0, 'RainbowViolet', { fg = '#C678DD' })
+      vim.api.nvim_set_hl(0, 'RainbowCyan', { fg = '#56B6C2' })
     end)
-
     require('ibl').setup(opts)
   end,
 }
