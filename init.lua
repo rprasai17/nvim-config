@@ -171,13 +171,50 @@ vim.o.cursorline = true
 vim.o.scrolloff = 2
 
 -- Enable autochdir for Neo-tree
-vim.api.nvim_create_autocmd('BufEnter', {
+
+--vim.o.autochdir = true
+
+vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWinEnter', 'BufDelete', 'WinEnter' }, {
   callback = function()
-    local ft = vim.bo.filetype
-    local bt = vim.bo.buftype
-    if ft ~= 'neo-tree' and bt == '' then
-      local dir = vim.fn.expand '%:p:h'
-      vim.cmd('cd ' .. dir)
+    local skip_buftypes = {
+      terminal = true,
+      help = true,
+      quickfix = true,
+      nofile = true,
+      prompt = true,
+    }
+
+    local skip_filetypes = {
+      ['neo-tree'] = true,
+      ['TelescopePrompt'] = true,
+      ['packer'] = true,
+      ['lazy'] = true,
+      ['mason'] = true,
+      ['dap-repl'] = true,
+      ['fugitive'] = true,
+    }
+    if skip_buftypes[vim.bo.buftype] or skip_filetypes[vim.bo.filetype] then
+      return
+    end
+
+    local fname = vim.api.nvim_buf_get_name(0)
+
+    -- skip if no filename or inside Neo-tree
+    if fname == '' then
+      return
+    end
+
+    local dir = vim.fn.fnamemodify(fname, ':p:h')
+    if dir ~= '' then
+      vim.cmd('silent! cd ' .. vim.fn.fnameescape(dir))
+
+      -- re-root Neo-tree so GUI only shows the parent dir
+      pcall(function()
+        require('neo-tree.command').execute {
+          action = 'show',
+          dir = dir,
+        }
+      end)
     end
   end,
 })

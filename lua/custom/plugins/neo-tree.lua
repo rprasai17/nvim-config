@@ -61,6 +61,10 @@ return {
       },
     },
     filesystem = {
+      bind_to_cwd = true,
+      cwd_target = {
+        sidebar = 'global',
+      },
       filtered_items = {
         visible = true,
         hide_dotfiles = false,
