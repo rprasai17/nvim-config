@@ -9,6 +9,64 @@ return {
   lazy = false, -- neo-tree will lazily load itself
   ---@module 'neo-tree'
   ---@type neotree.Config
+  keys = {
+    {
+      mode = { 'n', 't' },
+      '<M-[>',
+      function()
+        vim.cmd 'Neotree toggle'
+        vim.cmd 'wincmd l'
+      end,
+      desc = 'Toggle Neo-tree',
+    },
+    {
+      mode = { 'n' },
+      '<M-`>',
+      function()
+        local skip_buftypes = {
+          terminal = true,
+          help = true,
+          quickfix = true,
+          nofile = true,
+          prompt = true,
+        }
+
+        local skip_filetypes = {
+          ['neo-tree'] = true,
+          ['TelescopePrompt'] = true,
+          ['packer'] = true,
+          ['lazy'] = true,
+          ['mason'] = true,
+          ['dap-repl'] = true,
+          ['fugitive'] = true,
+        }
+
+        if skip_buftypes[vim.bo.buftype] or skip_filetypes[vim.bo.filetype] then
+          return
+        end
+
+        local fname = vim.api.nvim_buf_get_name(0)
+        -- skip if no filename or inside Neo-tree
+        if fname == '' then
+          return
+        end
+
+        local dir = vim.fn.fnamemodify(fname, ':p:h')
+        if dir ~= '' then
+          vim.cmd('silent! cd ' .. vim.fn.fnameescape(dir))
+
+          -- re-root Neo-tree so GUI only shows the parent dir
+          pcall(function()
+            require('neo-tree.command').execute {
+              action = 'show',
+              dir = dir,
+            }
+          end)
+        end
+      end,
+      desc = 'Update Neo-tree CWD to active window',
+    },
+  },
   opts = {
     enable_git_status = true,
     open_files_using_relative_paths = false,
@@ -54,7 +112,7 @@ return {
     },
     window = {
       position = 'left',
-      width = 20,
+      width = 25,
       mapping_options = {
         noremap = true,
         nowait = true,

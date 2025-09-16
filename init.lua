@@ -173,7 +173,7 @@ vim.o.scrolloff = 2
 -- Enable autochdir for Neo-tree
 
 --vim.o.autochdir = true
-
+--[[
 vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWinEnter', 'BufDelete', 'WinEnter' }, {
   callback = function()
     local skip_buftypes = {
@@ -218,6 +218,7 @@ vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWinEnter', 'BufDelete', 'WinEnter'
     end
   end,
 })
+--]]
 
 -- if performing an operation that would fail due to unsaved changes in the buffer (like `:q`),
 -- instead raise a dialog asking if you wish to save the current file(s)
