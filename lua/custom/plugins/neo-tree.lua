@@ -12,12 +12,24 @@ return {
   keys = {
     {
       mode = { 'n', 't' },
-      '<M-[>',
+      '<M-{>',
       function()
         vim.cmd 'Neotree toggle'
         vim.cmd 'wincmd l'
       end,
       desc = 'Toggle Neo-tree',
+    },
+    {
+      mode = { 'n', 't' },
+      '<M-[>',
+      function()
+        if vim.bo.filetype == 'neo-tree' then
+          vim.cmd 'wincmd l'
+        else
+          vim.cmd 'Neotree focus'
+        end
+      end,
+      desc = 'Toggle focus on neo-tree',
     },
     {
       mode = { 'n' },
