@@ -17,7 +17,6 @@ return {
   require 'custom.plugins.vim-matchup',
   require 'custom.plugins.indent-blankline',
   require 'custom.plugins.autopairs',
-  require 'custom.plugins.neoscroll',
   require 'custom.plugins.grapple',
   require 'custom.themes.gruvbox',
 }

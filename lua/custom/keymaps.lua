@@ -21,3 +21,6 @@ end, { silent = true })
 vim.keymap.set({ 'n', 't' }, '<C-l>', function()
   smart_nav 'l'
 end, { silent = true })
+
+-- Append to end of the line while in insert mode
+vim.keymap.set({ 'n', 'i' }, '<C-e>', '<Esc>A', { noremap = true, silent = true, desc = 'Go to end of line and insert' })

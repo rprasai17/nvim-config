@@ -886,10 +886,8 @@ require('lazy').setup({
         -- No, but seriously. Please read `:help ins-completion`, it is really good!
         --
         -- All presets have the following mappings:
-        -- <tab>/<s-tab>: move to right/left of your snippet expansion
         -- <c-space>: Open menu or open docs if already open
         -- <c-n>/<c-p> or <up>/<down>: Select next/previous item
-        -- <c-e>: Hide menu
         -- <c-k>: Toggle signature help
         --
         -- See :h blink-cmp-config-keymap for defining your own keymap
@@ -899,7 +897,7 @@ require('lazy').setup({
         ['<Down>'] = { 'select_next', 'fallback' },
         ['<C-p>'] = { 'select_prev', 'fallback_to_mappings' },
         ['<C-n>'] = { 'select_next', 'fallback_to_mappings' },
-        ['<C-e>'] = { 'hide' },
+        ['<C-g>'] = { 'hide' },
         ['<M-i>'] = { 'snippet_forward' },
         ['<M-o>'] = { 'snippet_backward' },
 
@@ -938,7 +936,7 @@ require('lazy').setup({
       fuzzy = { implementation = 'lua' },
 
       -- Shows a signature help window while you type arguments for a function
-      signature = { enabled = true },
+      signature = { enabled = false },
     },
   },
 
@@ -1010,7 +1008,22 @@ require('lazy').setup({
     main = 'nvim-treesitter.configs', -- Sets main module to use for opts
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
     opts = {
-      ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' },
+      ensure_installed = {
+        'bash',
+        'c',
+        'diff',
+        'html',
+        'lua',
+        'luadoc',
+        'markdown',
+        'markdown_inline',
+        'query',
+        'vim',
+        'vimdoc',
+        'javascript',
+        'typescript',
+        'graphql',
+      },
       -- Autoinstall languages that are not installed
       auto_install = true,
       highlight = {
