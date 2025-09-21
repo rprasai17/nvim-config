@@ -1,0 +1,52 @@
+test.sh
+nvim
+spell/
+
+# Lazy.nvim
+lazy-lock.json
+
+# Mason (LSP/DAP/linter/formatter binaries)
+mason/
+
+# Logs
+*.log
+debug.log
+
+# Session files
+Session.vim
+.session
+
+# Undo files
+.*.un~
+*.un~
+
+# Swap files
+*.swp
+*.swo
+*~
+
+# Backup files
+*.bak
+*.orig
+
+# Temporary files
+.netrwhist
+tags
+TAGS
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+
+# Local configuration overrides
+local.lua
+local/
