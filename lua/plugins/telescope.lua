@@ -18,6 +18,19 @@ return {
   },
   config = function()
     require('telescope').setup {
+      defaults = {
+        layout_config = {
+          width = 0.95,
+          height = 0.85,
+          preview_width = 0.4,
+          preview_cutoff = 1,
+        },
+      },
+      pickers = {
+        find_files = {
+          cwd = vim.fn.expand '~',
+        },
+      },
       extensions = {
         ['ui-select'] = {
           require('telescope.themes').get_dropdown(),
