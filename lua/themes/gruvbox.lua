@@ -33,10 +33,6 @@ return {
       callback = function()
         vim.o.background = 'light'
         vim.cmd 'colorscheme gruvbox'
-
-        -- Set vim-matchup colors after the colorscheme loads
-        vim.api.nvim_set_hl(0, 'MatchParen', { fg = '#ffffff', bg = '#ff0000', bold = true })
-        vim.api.nvim_set_hl(0, 'MatchWord', { fg = '#ffffff', bg = '#005faf', bold = true })
       end,
     })
   end,

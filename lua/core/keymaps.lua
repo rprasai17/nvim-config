@@ -1,5 +1,21 @@
 -- Keymaps
 
+-- Remap delete operations to black hole register
+vim.keymap.set({ 'n', 'v' }, 'd', '"_d', { noremap = true })
+vim.keymap.set({ 'n', 'v' }, 'D', '"_D', { noremap = true })
+vim.keymap.set({ 'n', 'v' }, 'x', '"_x', { noremap = true })
+vim.keymap.set({ 'n', 'v' }, 'X', '"_X', { noremap = true })
+vim.keymap.set({ 'n', 'v' }, 'c', '"_c', { noremap = true })
+vim.keymap.set({ 'n', 'v' }, 'C', '"_C', { noremap = true })
+vim.keymap.set('n', 's', '"_s', { noremap = true })
+vim.keymap.set('n', 'S', '"_S', { noremap = true })
+
+-- Keep cut functionality with leader key
+vim.keymap.set({ 'n', 'v' }, '<leader>d', 'd', { noremap = true })
+vim.keymap.set({ 'n', 'v' }, '<leader>D', 'D', { noremap = true })
+vim.keymap.set({ 'n', 'v' }, '<leader>x', 'x', { noremap = true })
+vim.keymap.set({ 'n', 'v' }, '<leader>c', 'c', { noremap = true })
+
 -- Clear highlights on search when pressing <Esc> in normal mode
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
