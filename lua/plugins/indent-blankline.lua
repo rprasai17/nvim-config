@@ -1,7 +1,7 @@
 return {
   'lukas-reineke/indent-blankline.nvim',
   main = 'ibl',
-  dependencies = { 'ellisonleao/gruvbox.nvim' },
+  dependencies = { 'catppuccin' },
   opts = {
     indent = {
       char = '│',
@@ -34,9 +34,7 @@ return {
   config = function(_, opts)
     local hooks = require 'ibl.hooks'
 
-    -- Let gruvbox handle most colors, but add subtle rainbow accents
     hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
-      -- Use gruvbox's built-in colors with proper contrast for light theme
       local colors = {
         red = '#cc241d',
         orange = '#d65d0e',

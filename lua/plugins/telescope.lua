@@ -28,7 +28,7 @@ return {
       },
       pickers = {
         find_files = {
-          cwd = vim.fn.expand '~',
+          cwd = vim.fn.expand '~/Dev',
         },
       },
       extensions = {

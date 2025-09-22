@@ -1,6 +1,6 @@
 return {
   'andymass/vim-matchup',
-  dependencies = { 'ellisonleao/gruvbox.nvim' }, -- Ensure gruvbox loads first
+  dependencies = { 'catppuccin' },
   init = function()
     -- show popup when match is off-screen
     vim.g.matchup_matchparen_offscreen = { method = 'popup' }

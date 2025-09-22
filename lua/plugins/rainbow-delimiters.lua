@@ -1,6 +1,6 @@
 return {
   'HiPhish/rainbow-delimiters.nvim',
-  dependencies = { 'ellisonleao/gruvbox.nvim' },
+  dependencies = { 'catppuccin' },
   event = { 'BufReadPost', 'BufNewFile' },
   config = function()
     local rainbow_delimiters = require 'rainbow-delimiters'
@@ -25,7 +25,6 @@ return {
       },
     }
 
-    -- Set gruvbox-light compatible colors
     vim.api.nvim_create_autocmd('ColorScheme', {
       callback = function()
         vim.api.nvim_set_hl(0, 'RainbowDelimiterRed', { fg = '#cc241d' })
