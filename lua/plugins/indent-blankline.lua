@@ -55,7 +55,6 @@ return {
       vim.api.nvim_set_hl(0, 'IblBlue', { fg = colors.blue })
       vim.api.nvim_set_hl(0, 'IblPurple', { fg = colors.purple })
 
-      -- Subtle scope highlighting that works with gruvbox-light
       vim.api.nvim_set_hl(0, 'IblScope', { fg = colors.blue, bold = true })
     end)
 

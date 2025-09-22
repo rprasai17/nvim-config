@@ -7,7 +7,7 @@ A modular Neovim configuration built for productivity and maintainability. Origi
 - **Modular Architecture** - Clean separation of concerns with logical file organization
 - **LSP Support** - Full language server protocol integration with Mason
 - **Modern Plugin Management** - Using lazy.nvim for fast startup times
-- **Gruvbox Theme** - Beautiful, eye-friendly colorscheme
+- **Catppuccin Theme** - Beautiful, eye-friendly colorscheme
 - **Enhanced Navigation** - File explorer, fuzzy finding, and quick navigation
 - **Smart Completion** - Intelligent autocompletion and snippets
 - **Git Integration** - Built-in git workflow tools
@@ -32,7 +32,7 @@ A modular Neovim configuration built for productivity and maintainability. Origi
 │   │   ├── neo-tree.lua    # File explorer
 │   │   └── [other plugins]
 │   └── themes/
-│       └── gruvbox.lua     # Colorscheme configuration
+│       └── catppuccin.lua     # Colorscheme configuration
 ```
 
 ## ⚡ Installation
@@ -89,7 +89,7 @@ nvim
 - **[mason.nvim](https://github.com/williamboman/mason.nvim)** - LSP installer
 - **[nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)** - Syntax highlighting
 - **[neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim)** - File explorer
-- **[gruvbox.nvim](https://github.com/ellisonleao/gruvbox.nvim)** - Colorscheme
+- **[catppuccin.nvim](https://https://github.com/catppuccin/nvim)** - Colorscheme
 - **[nvim-cmp](https://github.com/hrsh7th/nvim-cmp)** - Completion engine
 
 ## 🎨 Customization
