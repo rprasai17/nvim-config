@@ -30,6 +30,9 @@ return {
         find_files = {
           cwd = vim.fn.expand '~/Dev',
         },
+        live_grep = {
+          cwd = vim.fn.expand '~',
+        },
       },
       extensions = {
         ['ui-select'] = {

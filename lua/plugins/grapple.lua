@@ -53,29 +53,60 @@ return {
     },
     -- Navigate between Grapple Tags
     {
-      '<M-q>',
+      '<M-1>',
       '<cmd>Grapple select index=1<cr>',
       desc = 'Select first tag',
       mode = { 'n', 't' },
     },
     {
-      '<M-w>',
+      '<M-2>',
       '<cmd>Grapple select index=2<cr>',
       desc = 'Select second tag',
       mode = { 'n', 't' },
     },
     {
-      '<M-e>',
+      '<M-3>',
       '<cmd>Grapple select index=3<cr>',
       desc = 'Select third tag',
       mode = { 'n', 't' },
     },
     {
-      '<M-r>',
+      '<M-4>',
       '<cmd>Grapple select index=4<cr>',
       desc = 'Select fourth tag',
       mode = { 'n', 't' },
     },
+    {
+      '<M-5>',
+      '<cmd>Grapple select index=5<cr>',
+      desc = 'Select fifth tag',
+      mode = { 'n', 't' },
+    },
+    {
+      '<M-6>',
+      '<cmd>Grapple select index=6<cr>',
+      desc = 'Select sixth tag',
+      mode = { 'n', 't' },
+    },
+    {
+      '<M-7>',
+      '<cmd>Grapple select index=7<cr>',
+      desc = 'Select seventh tag',
+      mode = { 'n', 't' },
+    },
+    {
+      '<M-8>',
+      '<cmd>Grapple select index=8<cr>',
+      desc = 'Select eigth tag',
+      mode = { 'n', 't' },
+    },
+    {
+      '<M-9>',
+      '<cmd>Grapple select index=9<cr>',
+      desc = 'Select ninth tag',
+      mode = { 'n', 't' },
+    },
+
     {
       '<M-n>',
       '<cmd>Grapple cycle_tags next<cr>',
