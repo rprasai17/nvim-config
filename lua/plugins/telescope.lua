@@ -80,5 +80,33 @@ return {
     vim.keymap.set('n', '<leader>sn', function()
       builtin.find_files { cwd = vim.fn.stdpath 'config' }
     end, { desc = '[S]earch [N]eovim files' })
+
+    -- Find files within local project directory
+    local function find_project_root()
+      local current = vim.fn.expand '%:p:h' -- current file's directory
+      local markers = { '.gitignore', 'package.json' }
+
+      -- Walk up directories looking for project markers
+      local path = current
+      while path ~= '/' do
+        for _, marker in ipairs(markers) do
+          if vim.fn.filereadable(path .. '/' .. marker) == 1 then
+            -- Found marker, go up one level
+            return vim.fn.fnamemodify(path, ':h')
+          end
+        end
+        path = vim.fn.fnamemodify(path, ':h')
+      end
+
+      return vim.fn.getcwd() -- fallback
+    end
+
+    vim.keymap.set('n', '<leader>sp', function()
+      local project_root = find_project_root()
+      require('telescope.builtin').find_files {
+        cwd = project_root,
+        prompt_title = 'Project Files (' .. vim.fn.fnamemodify(project_root, ':t') .. ')',
+      }
+    end, { desc = 'Find files in project root' })
   end,
 }
