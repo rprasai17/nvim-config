@@ -105,7 +105,7 @@ return {
       local project_root = find_project_root()
       require('telescope.builtin').find_files {
         cwd = project_root,
-        prompt_title = 'Project Files (' .. vim.fn.fnamemodify(project_root, ':t') .. ')',
+        prompt_title = vim.fn.fnamemodify(project_root, ':h:t') .. '/' .. vim.fn.fnamemodify(project_root, ':t'),
       }
     end, { desc = 'Find files in project root' })
   end,
