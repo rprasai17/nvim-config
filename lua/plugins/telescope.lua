@@ -31,6 +31,7 @@ return {
       pickers = {
         find_files = {
           cwd = vim.fn.expand '~/Dev',
+          previewer = false,
         },
         live_grep = {
           cwd = vim.fn.expand '~',
