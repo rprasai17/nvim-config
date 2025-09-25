@@ -11,8 +11,8 @@ return {
   ---@type neotree.Config
   keys = {
     {
-      mode = { 'n', 't' },
-      '<M-{>',
+      mode = { 'n' },
+      '<leader>{',
       function()
         vim.cmd 'Neotree toggle'
         vim.cmd 'wincmd l'
@@ -20,8 +20,8 @@ return {
       desc = 'Toggle Neo-tree',
     },
     {
-      mode = { 'n', 't' },
-      '<M-[>',
+      mode = { 'n' },
+      '<leader>[',
       function()
         if vim.bo.filetype == 'neo-tree' then
           vim.cmd 'wincmd l'
@@ -33,7 +33,7 @@ return {
     },
     {
       mode = { 'n' },
-      '<M-`>',
+      '<leader>.',
       function()
         local skip_buftypes = {
           terminal = true,
