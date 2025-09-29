@@ -1,5 +1,10 @@
 -- Keymaps
 
+--Remap <Esc> to jk
+vim.keymap.set('i', 'jk', '<Esc>', { noremap = true })
+-- Also escape terminal mode (also is <Esc><Esc>)
+vim.keymap.set('t', 'jk', [[<C-\><C-n>]], { noremap = true })
+
 -- Remap delete operations to black hole register
 vim.keymap.set({ 'n', 'v' }, 'd', '"_d', { noremap = true })
 vim.keymap.set({ 'n', 'v' }, 'D', '"_D', { noremap = true })
